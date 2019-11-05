@@ -3,6 +3,7 @@ from django.utils import timezone
 from lugar.models import Lugar
 
 class EventoTipo(models.Model):
+    save_as = True
     nombre = models.CharField(max_length=200)
     descripcion = models.TextField()
     def __str__(self):

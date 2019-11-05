@@ -1,5 +1,6 @@
 from django.db import models
 class Lugar(models.Model):
+    save_as = True
     nombre = models.CharField(max_length=200)
     direccion = models.TextField()
     def __str__(self):
@@ -14,4 +15,4 @@ class Ambiente(models.Model):
     descripcion = models.TextField()
     tipo = models.CharField(max_length=10)
     def __str__(self):
-        return self.nombre
+        return self.identificador
