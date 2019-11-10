@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Colaborador,Comite
 
-# Register your models here.
+# Registra los modelos Colaborador y Comite en la página admin
 admin.site.register(Colaborador)
 admin.site.register(Comite)
