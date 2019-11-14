@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from lugar.models import Ambiente
+from evento.models import Evento
 
 """Clase entidad donde se definen los atributos de la tabla Actividad"""
 class Actividad(models.Model):
@@ -10,6 +11,7 @@ class Actividad(models.Model):
     tipo = models.CharField(max_length=200)
     fecha = models.DateTimeField()
     hora = models.TimeField()
+    evento = models.ForeignKey(Evento,on_delete=models.CASCADE,null=True)
     ambiente = models.ForeignKey(Ambiente, on_delete=models.CASCADE)
     costo_inscripcion=models.FloatField()
     num_incritos=models.IntegerField(blank=True, null=True)

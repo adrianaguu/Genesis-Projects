@@ -1,0 +1,37 @@
+from evento.models import EventoTipo, Evento
+from actividad.models import Actividad
+from colaborador.models import Comite, Colaborador
+from material.models import Material
+from lugar.models import Lugar, Ambiente
+from django.contrib.auth.models import User
+
+evento = Evento.objects.get(id=1)
+lugar = Lugar.objects.get(id=1)
+ambiente = Ambiente.objects.get(id=1)
+
+
+
+for i in range(6):
+    ambiente = Ambiente(identificador='N123'+str(i), tipo='tipo'+str(i),lugar= lugar,capacidad=50+(i*10),ubicación='ubicacion'+str(i),descripcion='ambiente ubicado en ...')
+    ambiente.save()
+
+
+for i in range(18):
+    actividad = Actividad(nombre='actividad'+str(i), evento=evento, tipo='tipo'+str(i), fecha='2019-12-06', hora = '00:00:00',ambiente=ambiente,costo_inscripcion=(i*10) )
+    actividad.save()
+
+
+for i in range(40):
+    material = Material(nombre='material'+str(i)+str(i), actividad=actividad, descripcion='material de...', tipo='material con...', precio_unidad = i, cantidad=(i*10))
+    material.save()
+
+
+for i in range(8):
+    user=User.objects.create_user('usuario1'+str(i), password='bar')
+    user.is_superuser=False
+    user.is_staff=False
+    user.save()
+    colaborador = Colaborador(nombre='colaborador'+str(i), comite=comite, DNI='2313155', user=user)
+    colaborador.save()
+
+
