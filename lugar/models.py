@@ -10,6 +10,9 @@ class Lugar(models.Model):
     def __str__(self):
         return self.nombre
 
+    class Meta:
+        verbose_name_plural = 'Lugares'
+
 
 """Clase entidad donde se definen los atributos de la tabla Ambiente"""
 class Ambiente(models.Model):

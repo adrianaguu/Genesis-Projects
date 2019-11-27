@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>GENESIS Project</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+	<noscript>
+		<link rel="stylesheet" href="{% static 'css/noscript.css' %}"></noscript>
+</head>
+
+<body class="is-preload">
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<a href="{% url 'type_event_list' %}" class="logo"><strong>GENESIS</strong> <span>Project</span></a>
+			<nav>
+				<a href="#menu">Menu</a>
+			</nav>
+		</header>
+
+
+		<!-- Banner -->
+		<!-- Note: The "styleN" class below should match that of the header element. -->
+		<section id="banner" class="style2">
+			<div class="inner">
+				
+				<header class="major">
+					<h1>{{evento.nombre}}</h1>
+				</header>
+				<div class="content">
+					<p>{{evento.descripcion}}</p>
+				</div>
+			</div>
+		</section>
+
+
+		<!-- Extra -->
+		<div id="extra">
+			<a href="{% url 'inscripcion' pk=evento.pk %}" class="button">Inscribirse</a>
+		</div>
+
+		<!-- Main -->
+		<div id="main">
+
+			<!-- Two -->
+			<section id="two" class="spotlights">
+				{% for actividad in actividades %}
+				<section>
+					<div class="content">
+						<div class="inner">
+							<header class="major">
+								<h3>{{actividad}}</h3>
+							</header>
+							<p>{{actividad.descripcion}}</p>
+							<ul class="actions">
+								<li><a href="{% url 'inscripcion' pk=evento.pk %}" class="button">Inscribete por {{actividad.costo_inscripcion}}$</a></li>
+							</ul>
+						</div>
+					</div>
+				</section>
+				{% endfor %}
+
+			</section>
+
+			<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="copyright">
+						<li>&copy; Untitled</li>
+						<li>Design: <a href="https://html5up.net">HTML5 UP</a></li><br />
+						<li>&copy; Untitled</li>
+						<li>Adapted: Alexandra Jalixto Pacora</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		</div>
+
+
+
+</body>
+
+</html>

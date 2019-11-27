@@ -20,3 +20,6 @@ class Actividad(models.Model):
     """Un objeto de esta clase se muestra por su nombre"""
     def __str__(self):
         return self.nombre
+
+    class Meta:
+        verbose_name_plural = 'Actividades'
