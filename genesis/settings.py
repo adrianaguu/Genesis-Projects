@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'material',
     'caja',
     'inscripcion',
+    'reportes',
 ]
 
 MIDDLEWARE = [

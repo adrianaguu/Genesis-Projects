@@ -6,7 +6,6 @@ from lugar.models import Lugar,Ambiente
 from colaborador.models import Comite, Colaborador
 from inscripcion.models import Inscripcion
 
-admin.site.register(Descuento)
 
 #Clase para que aparesca en la página admi del modelo padre
 class EventoInline(admin.TabularInline):
@@ -21,10 +20,7 @@ class ComiteInLine(admin.TabularInline):
 class ActividadInLine(admin.TabularInline):
     model = Actividad
 
-class DescuentosInLine(admin.TabularInline):
-    model = Evento.descuentos.through
-    verbose_name = "Descuento"
-    verbose_name_plural = "Descuentos"
+
 
 # Quita el modelo Group en la página admin
 admin.site.unregister(Group)
@@ -36,12 +32,13 @@ class EventoTipoAdmin(admin.ModelAdmin):
         ]
 
 
+
+
 class EventoAdmin(admin.ModelAdmin):
     save_as = True
     inlines = [
             ActividadInLine,
             ComiteInLine,
-            DescuentosInLine,
             InscripcionInline,
         ]
     ist_display = ('nombre','fecha_inicio','fecha_fin')
@@ -53,3 +50,4 @@ class EventoAdmin(admin.ModelAdmin):
 admin.site.register(Evento, EventoAdmin)
 # Registra el modelo Evento Tipo en la página admin
 admin.site.register(EventoTipo, EventoTipoAdmin)
+admin.site.register(Descuento)

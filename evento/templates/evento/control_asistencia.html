@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>GENESIS Project</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <noscript>
+        <link rel="stylesheet" href="{% static 'css/noscript.css' %}"></noscript>
+</head>
+
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <a href="{% url 'type_event_list' %}" class="logo"><strong>GENESIS</strong> <span>Project</span></a>
+        </header>
+
+
+        <!-- Banner -->
+        <!-- Note: The "styleN" class below should match that of the header element. -->
+        <section id="banner" class="style2">
+            <div class="inner">
+
+                <header class="major">
+                    <h1>Control de Asistencia: {{evento.nombre}}</h1>
+                </header>
+                <div class="content">
+                    <p>{{evento.descripcion}}</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="formulario" class="formulario">
+            <div class="inner">
+                {% if user.is_authenticated %}
+                <section>
+                    <form method="POST">{% csrf_token %}
+                        {{ form.as_p }}
+
+                        <ul class="actions">
+                            <li><input type="submit" value="Guardar" class="primary" /></li>
+                            <li><input type="reset" value="Limpiar" /></li>
+                        </ul>
+                    </form>
+                </section>
+                {% else %}
+                <h3>No esta autorizado, inicie sesión.</h3>
+                {% endif %}
+            </div>
+        </section>
+
+
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="inner">
+                <ul class="copyright">
+                    <li>&copy; Untitled</li>
+                    <li>Design: <a href="https://html5up.net">HTML5 UP</a></li><br />
+                    <li>&copy; Untitled</li>
+                    <li>Adapted: Alexandra Jalixto Pacora</a></li>
+                </ul>
+            </div>
+        </footer>
+
+    </div>
+
+
+
+</body>
+
+</html>

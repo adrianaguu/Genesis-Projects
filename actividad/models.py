@@ -9,13 +9,12 @@ class Actividad(models.Model):
     nombre = models.CharField(max_length=200)
     descripcion = models.TextField()
     tipo = models.CharField(max_length=200)
-    fecha = models.DateTimeField()
+    fecha = models.DateField()
     hora = models.TimeField()
     evento = models.ForeignKey(Evento,on_delete=models.CASCADE,null=True)
     ambiente = models.ForeignKey(Ambiente, on_delete=models.CASCADE)
     costo_inscripcion=models.FloatField()
-    num_incritos=models.IntegerField(blank=True, null=True)
-
+   
 
     """Un objeto de esta clase se muestra por su nombre"""
     def __str__(self):

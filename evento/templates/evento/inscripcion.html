@@ -18,7 +18,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="index.html" class="logo"><strong>GENESIS</strong> <span>Project</span></a>
+						<a href="{% url 'type_event_list' %}" class="logo"><strong>GENESIS</strong> <span>Project</span></a>
 						<nav>
 						
 						</nav>
@@ -34,7 +34,10 @@
 						<h1>Inscribete a {{evento.nombre}}</h1>
 					</header>
 					<div class="content">
-						<p>{{evento.descripcion}}</p>
+						<h3>Actividades disponibles: </h3>
+						{% for actividad in actividades %}
+						<li>{{actividad.nombre}}: {{actividad.costo_inscripcion}}</li>
+						{% endfor %}
 					</div>
 				</div>
 			</section>
@@ -48,7 +51,6 @@
 									
 									<ul class="actions">
 										<li><input type="submit" value="Inscribirse" class="primary" /></li>
-										<li><input type="reset" value="Clear" /></li>
 									</ul>
 								</form>
 							</section>

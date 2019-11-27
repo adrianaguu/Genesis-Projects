@@ -18,6 +18,8 @@ class Salida(models.Model):
     cantidad = models.FloatField()
     fecha = models.DateTimeField()
     evento = models.ForeignKey(Evento,on_delete=models.CASCADE)
+    numero_documento = models.CharField(max_length=12,null=True)
+    concepto  = models.CharField(max_length=60,null=True)
     def __str__(self):
         return str(self.cantidad)
 
@@ -25,7 +27,7 @@ class Salida(models.Model):
 @receiver(post_save, sender=Inscripcion)
 def create_inscripcion_ingreso(sender, instance, created, **kwargs):
     if created:
-        if(instance.monto>0):
+        if(instance.monto and instance.monto>0):
             Ingreso.objects.create(evento=instance.evento,cantidad=instance.monto,fecha=timezone.now())
   
 
