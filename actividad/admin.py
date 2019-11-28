@@ -13,5 +13,5 @@ class ActividadAdmin(admin.ModelAdmin):
         ]
     
 
-# Register el modelo evento 
+# Casos de uso relacionados: C07-01,C07-02,C07-03
 admin.site.register(Actividad, ActividadAdmin)

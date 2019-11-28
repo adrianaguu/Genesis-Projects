@@ -25,7 +25,7 @@ class ActividadInLine(admin.TabularInline):
 # Quita el modelo Group en la página admin
 admin.site.unregister(Group)
 
-#Clase que personliza el admin del modelo Evento
+#Clase que personliza el admin del modelo Tipo Evento
 class EventoTipoAdmin(admin.ModelAdmin):
     inlines = [
             EventoInline,
@@ -33,6 +33,7 @@ class EventoTipoAdmin(admin.ModelAdmin):
 
 
 
+#Clase que personliza el admin del modelo Evento
 
 class EventoAdmin(admin.ModelAdmin):
     save_as = True
@@ -47,7 +48,10 @@ class EventoAdmin(admin.ModelAdmin):
     
 
 # Register el modelo evento en la página admin
+#Códigos de casos de uso relacionado: C06-01,C06-02,C06-03,C06-04
 admin.site.register(Evento, EventoAdmin)
 # Registra el modelo Evento Tipo en la página admin
+#Códigos de casos de uso relacionado: C05-01,C05-02,C05-03
 admin.site.register(EventoTipo, EventoTipoAdmin)
+#Códigos de caso de uso relacionado: C13
 admin.site.register(Descuento)

@@ -26,8 +26,10 @@ class AmbienteAdmin(admin.ModelAdmin):
             ActividadInLine
         ]    
 
-# Register el modelo evento 
+# Register el modelo Lugar en admin
+#Códigos de casos de uso relacionado: C08-01,C08-02,C08-03
 admin.site.register(Lugar, LugarAdmin)
-# Personificar el admin, para permitir adaptar un ambiente
 
+# Personalizar el admin, para permitir adaptar un ambiente
+#Códigos de casos de uso relacionado: C09-01,C09-02,C09-03,C09-04
 admin.site.register(Ambiente, AmbienteAdmin)

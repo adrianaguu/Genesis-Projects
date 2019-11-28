@@ -39,7 +39,6 @@
 
 		<!-- Main -->
 		<div id="main">
-
 			<!-- One -->
 			<section id="one" class="tiles">
 				{% for tipo in tipos %}
@@ -49,7 +48,12 @@
 						<p>{{tipo.descripcion}}</p>
 					</header>
 				</article>
-
+				{% empty%}
+				{% if mensaje %}
+				<h3>Inscripcion exitosa</h3>	
+				{% else %}
+				<h3>Todavía no hay eventos de este tipo, regresa más tarde.</h3>
+				{% endif %}
 				{% endfor %}
 
 			</section>
