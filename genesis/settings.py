@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'actividad.apps.ActividadConfig',
     'lugar.apps.LugarConfig',
     'colaborador',
+    'django_object_actions',
     'material',
     'caja',
     'inscripcion',

@@ -118,6 +118,9 @@ input, select, textarea {
 		font-weight: 300;
 		letter-spacing: 0.025em;
 		line-height: 1.65;
+		border-style: solid;
+
+}
 	}
 
 		@media screen and (max-width: 1680px) {
