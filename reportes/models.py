@@ -29,7 +29,6 @@ class ControlMaterial(models.Model):
 
 class ControlInscritos(models.Model):
     evento = models.OneToOneField(Evento,on_delete=models.CASCADE)
-    asistentes = models.ManyToManyField(Inscripcion,blank=True)
 
     def __str__(self):
         return self.evento.nombre
@@ -39,8 +38,6 @@ class ControlInscritos(models.Model):
 
 class ControlCaja(models.Model):
     evento = models.OneToOneField(Evento,on_delete=models.CASCADE)
-    ingresos = models.ManyToManyField(Ingreso,blank=True)
-    salidas = models.ManyToManyField(Salida,blank=True)
 
     def __str__(self):
         return self.evento.nombre
@@ -50,7 +47,6 @@ class ControlCaja(models.Model):
 
 class Certificado(models.Model):
     evento = models.OneToOneField(Evento,on_delete=models.CASCADE)
-    asistentes = models.ManyToManyField(Inscripcion,blank=True)
 
     def __str__(self):
         return self.evento.nombre
