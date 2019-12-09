@@ -1,26 +1,32 @@
+{% load static %}
 <html>
 <head>
   <title>Certificado de {{obj.evento.nombre }}</title>
   <style>
+    @page{
+      margin: 2pt;
+      size:landscape;
+    }
     body {
       background-color: #f7f7f7;
     }
     p {
-      text-align: justify;
-      text-justify: inter-word;
-      padding-bottom: 50%;
+      text-align: center;
+      vertical-align: center;
+      padding-bottom: 25%;
     }
-    .text-right {
-      text-align: right;
-    }
+    h1 {
+      padding-top: 25%;
+      text-align: center;
+      vertical-align: auto;
+    
   </style>
 </head>
 
   <body>
       {% for asistente in control.asistentes.all %}
     <h1 >Certificado de {{ obj.evento.nombre  }}</h1>
-    <p></p>
-    <p>{{ asistente.nombre }} {{ asistente.apellido }} asistió al evento </p>
+    <p>Certificamos que {{ asistente.nombre }} {{ asistente.apellido }} asistio al evento {{ obj.evento.nombre }}</p>
     {% endfor %}
   </body>
  

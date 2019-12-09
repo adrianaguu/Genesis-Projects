@@ -2,7 +2,7 @@ from django.db import models
 from evento.models import Evento
 from actividad.models import Actividad
 
-# Create your models here.
+# Caso de uso c13 y c12
 class Inscripcion(models.Model):
     """Clase entidad donde se definen los atributos de la tabla Colaborador"""
     evento = models.ForeignKey(Evento, on_delete=models.CASCADE)

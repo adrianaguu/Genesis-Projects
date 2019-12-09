@@ -9,21 +9,32 @@
       text-align: justify;
       text-justify: inter-word;
     }
-    .text-right {
-      text-align: right;
+    .text-1 {
+      text-align: center;
     }
   </style>
 </head>
   <body>
-    <h1 class="text-right">Control de Inscritos de {{ obj.evento.nombre  }}</h1>
-    <p>Inscritos:</p>
-    {% for inscrito in inscripciones %}
-    <p>{{ inscrito.nombre }} {{inscrito.apellido}}, monto de pago: {{inscrito.monto}}$, actividades :</p>
-    <li>
-      {% for actividad in inscrito.actividades.all %}
-      <lu> {{actividad.nombre}} </lu>
+    <h1 class="text-1">Control de Inscritos de {{ obj.evento.nombre  }}</h1>
+    <table>
+      <tr>
+        <th>Inscritos</th>
+        <th>Monto de Pago</th>
+        <th>Actividades</th>
+      </tr>
+      {% for inscrito in inscripciones %}
+      <tr>
+        <td>{{ inscrito.nombre }} {{inscrito.apellido}}</td>
+        <td>{{inscrito.monto}}$</td>
+        <td> 
+          <li>
+            {% for actividad in inscrito.actividades.all %}
+            <lu> {{actividad.nombre}} </lu>
+            {% endfor %}
+          </li>
+        </td>
+      </tr>
       {% endfor %}
-    </li>
-    {% endfor %}
+    </table>
   </body>
 </html>

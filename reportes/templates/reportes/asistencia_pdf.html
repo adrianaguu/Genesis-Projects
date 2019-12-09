@@ -16,9 +16,15 @@
 </head>
   <body>
     <h1 class="text-right">Control de Asistencia de {{ obj.evento.nombre  }}</h1>
-    <p>Asistentes:</p>
-    {% for asistente in obj.asistentes.all %}
-    <p>{{ asistente }}</p>
-    {% endfor %}
+    <table>
+      <tr>
+        <th>Asistentes</th>
+      </tr>
+        {% for asistente in obj.asistentes.all %}
+        <tr>
+          <td>{{ asistente }}</td>
+        </tr>
+        {% endfor %}
+    </table>
   </body>
 </html>

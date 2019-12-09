@@ -9,16 +9,22 @@
       text-align: justify;
       text-justify: inter-word;
     }
-    .text-right {
-      text-align: right;
+    .text-1 {
+      text-align: center;
     }
   </style>
 </head>
   <body>
-    <h1 class="text-right">Control de Materiales de {{obj.actividad.nombre }}</h1>
-    <p>Materiales Entregados:</p>
-    {% for material in obj.materiales.all %}
-    <p>{{ material }}</p>
-    {% endfor %}
+    <h1 class="text-1">Control de Materiales de {{obj.actividad.nombre }}</h1>
+    <table>
+      <tr>
+        <th>Materiales Entregados</th>
+      </tr>
+      {% for material in obj.materiales.all %}
+      <tr>
+        <td>{{ material }}</td>
+      </tr>
+      {% endfor %}
+    </table>
   </body>
 </html>
